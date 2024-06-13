@@ -75,4 +75,4 @@ TOKEN_LOCAL = ENV.get("KEY_TOKEN", "<No .env token>")
     ```
 
 ## The GitHub Action
-[The GitHub Action](https://github.com/Amadeus-Codagami/weekly-retrospective-confluence/blob/main/.github/workflows/main.yml) is scheduled to automatically run every Friday at 14:00 GMT (Friday, 09:00 CDT; Friday, 08:00 CST).
+[The GitHub Action](https://github.com/Amadeus-Codagami/weekly-retrospective-confluence/blob/main/.github/workflows/main.yml) is scheduled to automatically run every Friday at 14:00 GMT (Friday at 09:00 CDT; Friday at 08:00 CST).
