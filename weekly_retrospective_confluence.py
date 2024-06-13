@@ -53,7 +53,7 @@ date_today = date.today()
 date_next_friday = date_today + timedelta((4 - date_today.weekday()) % 7)
 page_new_title = f"{date_next_friday} {WR_STR}"
 
-# Only create if page does not exist yet
+# Do not create if page already exists, as overwriting may occur if table is filled
 if confluence.page_exists(SPACE_ID, page_new_title):
     _, page_exist = get_page(page_new_title)
     print(f"{WR_STR} page with that date already exists at {get_link(page_exist)}, and it may be filled. Halting.")
@@ -63,9 +63,9 @@ else:
     page_template_content = page_template["body"]["storage"]["value"]
 
     # Create new page with template pasted therein
-    time_now = datetime.now()
+    now = datetime.now()
     resp = confluence.create_page(SPACE_ID,
                                   page_new_title,
                                   page_template_content,
                                   parent_id=page_template_id)
-    print(f"{time_now}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
+    print(f"{now}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
