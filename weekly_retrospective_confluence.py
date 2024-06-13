@@ -64,12 +64,8 @@ else:
 
     # Create new page with template pasted therein
     time_now = datetime.now()
-    try:
-        resp = confluence.create_page(SPACE_ID,
-                                      page_new_title,
-                                      page_template_content,
-                                      parent_id=page_template_id)
-
-        print(f"{time_now}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
-    except:
-        print(f"{time_now}: ❌ Failed in creating \"{page_new_title}\", which the script's creator is used to")
+    resp = confluence.create_page(SPACE_ID,
+                                  page_new_title,
+                                  page_template_content,
+                                  parent_id=page_template_id)
+    print(f"{time_now}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
