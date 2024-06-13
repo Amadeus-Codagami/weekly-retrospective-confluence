@@ -63,7 +63,7 @@ else:
     page_template_content = page_template["body"]["storage"]["value"]
 
     # Create new page with template pasted therein
-    time_now = datetime.now().time()
+    time_now = datetime.now()
     try:
         resp = confluence.create_page(SPACE_ID,
                                       page_new_title,
