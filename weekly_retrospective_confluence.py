@@ -56,16 +56,15 @@ page_new_title = f"{date_next_friday} {WR_STR}"
 # Do not create if page already exists, as overwriting may occur if table is filled
 if confluence.page_exists(SPACE_ID, page_new_title):
     _, page_exist = get_page(page_new_title)
-    print(f"{WR_STR} page with that date already exists at {get_link(page_exist)}, and it may be filled. Halting.")
+    print(f"{WR_STR} page with that date already exists at {get_link(page_exist)} and it may already be filled. Halting.")
 else:
     # Find template page, then extract HTML contained therein
     page_template_id, page_template = get_page(PAGE_TEMPLATE_TITLE)
     page_template_content = page_template["body"]["storage"]["value"]
 
     # Create new page with template pasted therein
-    now = datetime.now()
     resp = confluence.create_page(SPACE_ID,
                                   page_new_title,
                                   page_template_content,
                                   parent_id=page_template_id)
-    print(f"{now}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
+    print(f"{datetime.now()}: ✅ Succeeded in creating \"{page_new_title}\".\nCheck it out at {get_link(resp)}")
