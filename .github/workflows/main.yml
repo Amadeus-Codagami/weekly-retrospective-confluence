@@ -3,8 +3,8 @@ name: Create Weekly Retrospective page
 on:
   # For automation
   schedule:
-    # 09:00 Friday CDT, 08:00 Friday CST
-    - cron: "00 14 * * 5"
+    # 04:00 Friday CDT, 03:00 Friday CST
+    - cron: "00 9 * * 5"
 
 jobs:
   weekly-retrospective-confluence:
